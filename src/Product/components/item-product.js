@@ -8,10 +8,10 @@ import {
 } from "react-native";
 
 const ItemProduct = props => (
-  <TouchableHighlight onPress={() => props.navigation.navigate("DetailScreen")}>
+  <TouchableHighlight onPress={() => props.navigation.navigate("DetailScreen", { idProduct: props.product._id })}>
     <View style={styles.container}>
       <View>
-        <Image style={styles.image} source={{ uri: props.product.photo }} />
+        <Image style={styles.image} source={{ uri: props.product.avatar }} />
       </View>
       <View style={styles.content}>
         <Text>{props.product.name}</Text>

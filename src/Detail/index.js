@@ -14,11 +14,9 @@ class ProductDetail extends Component {
   }
 
   render() {
-    return (
-      <View>
-        <Text> Details Products </Text>
-      </View>
-    );
+    return <View>
+      <Text>{this.props.navigation.getParam("idProduct")}</Text>
+      </View>;
   }
 }
 
