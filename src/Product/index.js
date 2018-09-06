@@ -12,11 +12,11 @@ class Product extends Component {
 
   componentDidMount = () => {
     Api.getProducts()
-    .then(data => {
-      this.setState({ productList : data })
-      console.log(data)
-    })
-    .catch(error => console.log(error))
+      .then(data => {
+        this.setState({ productList: data });
+        console.log(data);
+      })
+      .catch(error => console.log(error));
   };
 
   renderItem = ({ item }) => (
@@ -39,9 +39,7 @@ class Product extends Component {
           ItemSeparatorComponent={this.separatorComponent}
           renderSectionHeader={this.sectionHeader}
           keyExtractor={this.keyExtractor}
-          sections={[
-            { data: this.state.productList, key: "Miscellanious" },
-          ]}
+          sections={[{ data: this.state.productList, key: "Miscellanious" }]}
         />
       </View>
     );

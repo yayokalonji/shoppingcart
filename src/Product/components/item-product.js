@@ -8,7 +8,13 @@ import {
 } from "react-native";
 
 const ItemProduct = props => (
-  <TouchableHighlight onPress={() => props.navigation.navigate("DetailScreen", { idProduct: props.product._id })}>
+  <TouchableHighlight
+    onPress={() =>
+      props.navigation.navigate("DetailScreen", {
+        idProduct: props.product._id
+      })
+    }
+  >
     <View style={styles.container}>
       <View>
         <Image style={styles.image} source={{ uri: props.product.avatar }} />

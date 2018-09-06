@@ -23,5 +23,15 @@ class Api {
       console.log(error);
     }
   }
+
+  async getProductsAwait(id) {
+    try {
+      const query = await fetch(`${API_ENDPOINT}/products/${id}`);
+      const data = await query.json();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 export default new Api();
