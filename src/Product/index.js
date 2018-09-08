@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, SectionList, Platform } from "react-native";
 import ItemProduct from "./components/item-product";
 import ItemSeparator from "./components/item-separator";
+import Api from "../utils/api";
 
 class Product extends Component {
   constructor(props) {
@@ -10,37 +11,12 @@ class Product extends Component {
   }
 
   componentDidMount = () => {
-    const products = [
-      {
-        name: "TV",
-        price: "$2000",
-        photo: "https://images.duckduckgo.com/iu/?u=https%3A%2F%2Ftokenhippygirl.files.wordpress.com%2F2014%2F03%2Ftv.jpg&f=1",
-        description: "Television is a telecommunication\nmedium used for transmitting moving \nimages in monochrome, or in colour\n,and in two or three dimensions and sound",
-        id: 1
-      },
-      {
-        name: "Bike",
-        price: "$500",
-        photo: "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fmoziru.com%2Fimages%2Fmotorcycle-clipart-dirt-bike-8.jpg&f=1",
-        description: "A bicycle (or bike) is a small,\nhuman powered land vehicle with a seat\n,two wheels, two pedals, and a metal\nchain connected to cogs on the pedals\nand rear wheel. ",
-        id: 2
-      },
-      {
-        name: "Car",
-        price: "$35000",
-        photo: "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fdoityourselfdaddy.com%2Fwp-content%2Fuploads%2F2017%2F05%2FCars-3-Lightning-McQueen.jpg&f=1",
-        description: "A car is a road vehicle used to\ncarry passengers. It is also called an\nautomobile, which comes from the Greek\nword \"auto\" and the French\nword \"mobile\". ",
-        id: 3
-      },
-      {
-        name: "Book",
-        price: "$20",
-        photo: "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.clipartpanda.com%2Flibrary-book-clipart-clip-art-library-6.jpg&f=1",
-        description: "a handwritten or printed work\nof fiction or nonfiction, usually on\nsheets of paper fastened or bound\ntogether within covers.",
-        id: 4
-      }
-    ];
-    this.setState({ productList: products });
+    Api.getProducts()
+      .then(data => {
+        this.setState({ productList: data });
+        console.log(data);
+      })
+      .catch(error => console.log(error));
   };
 
   renderItem = ({ item }) => (
@@ -53,7 +29,7 @@ class Product extends Component {
     <Text style={styles.header}>{section.key}</Text>
   );
 
-  keyExtractor = item => item.id.toString();
+  keyExtractor = item => item._id.toString();
 
   render() {
     return (
@@ -63,9 +39,7 @@ class Product extends Component {
           ItemSeparatorComponent={this.separatorComponent}
           renderSectionHeader={this.sectionHeader}
           keyExtractor={this.keyExtractor}
-          sections={[
-            { data: this.state.productList, key: "Miscellanious" },
-          ]}
+          sections={[{ data: this.state.productList, key: "Miscellanious" }]}
         />
       </View>
     );
