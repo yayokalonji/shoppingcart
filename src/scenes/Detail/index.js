@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-import Api from "./../utils/api";
+import Api from "./../../utils/api";
 import ItemDetail from "./components/item-detail";
 
 class ProductDetail extends Component {

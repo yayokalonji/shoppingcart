@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { StackNavigator } from "react-navigation";
-import Product from "./src/Product";
-import ProductDetail from "./src/Detail";
+import Product from "./src/scenes/Product";
+import ProductDetail from "./src/scenes/Detail";
+
 
 const AppNavigator = StackNavigator(
   {

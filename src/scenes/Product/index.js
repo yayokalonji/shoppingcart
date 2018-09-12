@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, SectionList, Platform } from "react-native";
 import ItemProduct from "./components/item-product";
 import ItemSeparator from "./components/item-separator";
-import Api from "../utils/api";
+import Api from "./../../utils/api";
 
 class Product extends Component {
   constructor(props) {
