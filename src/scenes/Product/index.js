@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, SectionList, Platform } from "react-native";
 import ItemProduct from "./components/item-product";
 import ItemSeparator from "./components/item-separator";
 import Api from "./../../utils/api";
+import httpProduts from "../../services/Products/http-produts";
 
 class Product extends Component {
   constructor(props) {
@@ -11,13 +12,21 @@ class Product extends Component {
   }
 
   componentDidMount = () => {
-    Api.getProducts()
+    /*     Api.getProducts()
       .then(data => {
         this.setState({ productList: data });
         console.log(data);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error)); */
+
+      this.getProducts();
   };
+
+  async getProducts() {
+    const data = await httpProduts.getProducts();
+    this.setState({ productList: data });
+    console.log(data);
+  }
 
   renderItem = ({ item }) => (
     <ItemProduct navigation={this.props.navigation} product={item} />
