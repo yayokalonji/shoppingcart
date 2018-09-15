@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
-import Api from "./../../utils/api";
+import { View } from "react-native";
 import ItemDetail from "./components/item-detail";
-
+import httpProduts from "../../services/Products/http-produts";
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
@@ -12,23 +11,20 @@ class ProductDetail extends Component {
   }
 
   componentDidMount = () => {
-    this.invokeProductsDetail();
+    this.getProduct();
   };
 
-  async invokeProductsDetail() {
-    const data = await Api.getProductsAwait(
+  async getProduct() {
+    const data = await httpProduts.getProduct(
       this.props.navigation.getParam("idProduct")
     );
-    console.log(data);
-    this.setState({
-      productdetail: data
-    });
+    this.setState({ productdetail: data });
   }
 
   render() {
     return (
       <View>
-        <ItemDetail detail={this.state.productdetail}/>
+        <ItemDetail detail={this.state.productdetail} />
       </View>
     );
   }

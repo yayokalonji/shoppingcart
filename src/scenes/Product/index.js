@@ -12,14 +12,7 @@ class Product extends Component {
   }
 
   componentDidMount = () => {
-    /*     Api.getProducts()
-      .then(data => {
-        this.setState({ productList: data });
-        console.log(data);
-      })
-      .catch(error => console.log(error)); */
-
-      this.getProducts();
+    this.getProducts();
   };
 
   async getProducts() {
