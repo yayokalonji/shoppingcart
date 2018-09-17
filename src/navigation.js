@@ -1,21 +1,37 @@
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 import Product from "./../src/scenes/Product";
 import ProductDetail from "./../src/scenes/Detail";
+import { SideMenu } from "./side-menu";
 
-const Stack = StackNavigator(
+const StackProducts = StackNavigator(
   {
-    Product: { screen: Product },
-    ProductDetail: { screen: ProductDetail }
+    ProductScreen: {
+      screen: Product
+    },
+    ProductDetailScreen: {
+      screen: ProductDetail
+    }
   },
   {
-    initialRouteName: "Product"
+    initialRouteName: "ProductScreen"
   }
 );
 
+export const StackCart = StackNavigator({
+  CartScreen: {
+    screen: Product
+  }
+});
+
 export const Drawer = DrawerNavigator(
   {
-    Stack: { screen: Stack },
-    ProductDetail : {screen : ProductDetail}
+    StackScreen: {
+      screen: StackProducts
+    },
+    StackCartScreen: {
+      screen: StackCart,
+      contentComponent : SideMenu
+    }
   },
   {
     drawerWidth: 300
