@@ -1,37 +1,38 @@
 import React, { Component } from "react";
-import { Text, View, StyleSheet, ScrollView } from "react-native";
-import Icon from "react-native-vector-icons/dist/FontAwesome";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 
-export class SideMenu extends Component {
-  constructor(props) {
-    super(props);
-  }
+class SideMenu extends Component {
   render() {
     return (
       <View style={styles.container}>
         <ScrollView>
           <View style={styles.itemSectionNav}>
             <Text
-              style={styles.textItemSectionNav}
-              onPress={() => this.props.navigation.navigate("StackScren")}
+              style={styles.textItemNav}
+              onPress={() => this.props.navigation.navigate("Stack")}
             >
-              <Icon name="list-alt" size={24} color="#999" /> Catalogo
+              Stack
             </Text>
           </View>
-
           <View style={styles.itemSectionNav}>
             <Text
-              style={styles.textItemSectionNav}
-              onPress={() => this.props.navigation.navigate("StackCarScreen")}
+              style={styles.textItemNav}
+              onPress={() => this.props.navigation.navigate("Tabs")}
             >
-              <Icon name="shopping-cart" size={24} color="#999" /> Carrito de
-              Compras
+              Tabs
+            </Text>
+          </View>
+          <View style={styles.itemSectionNav}>
+            <Text
+              style={styles.textItemNav}
+              onPress={() => this.props.navigation.navigate("Settings")}
+            >
+              Settings
             </Text>
           </View>
         </ScrollView>
-
         <View style={styles.footerContainer}>
-          <Text> Powered by Etn</Text>
+          <Text> Powered by ETN</Text>
         </View>
       </View>
     );
@@ -40,17 +41,16 @@ export class SideMenu extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    paddingTop: 20,
     flex: 1,
     backgroundColor: "#ccc"
   },
   itemSectionNav: {
-    margin: 10,
-    flexDirection: "row",
+    margin: 15,
     backgroundColor: "#ccc"
   },
-  textItemSectionNav: {
-    fontSize: 18
+  textItemNav: {
+    fontSize: 24
   },
   footerContainer: {
     padding: 15,
