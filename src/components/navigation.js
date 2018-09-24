@@ -1,7 +1,7 @@
 import React from "react";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
-import Product from "./../src/scenes/Product";
-import ProductDetail from "./../src/scenes/Detail";
+import Product from "../scenes/Product";
+import ProductDetail from "../scenes/Detail";
 import Tab1 from "./tab-1";
 import Tab2 from "./tab-2";
 import Tab3 from "./tab-3";
