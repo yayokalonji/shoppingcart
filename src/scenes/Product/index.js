@@ -40,7 +40,7 @@ class Product extends Component {
           ItemSeparatorComponent={this.separatorComponent}
           renderSectionHeader={this.sectionHeader}
           keyExtractor={this.keyExtractor}
-          sections={[{ data: this.state.productList, key: "Miscellanious" }]}
+          sections={[{ data: this.state.productList, key: "Products" }]}
         />
       </View>
     );
@@ -49,13 +49,16 @@ class Product extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: Platform.OS == "ios" ? "#ccc" : "#992277",
+    backgroundColor: Platform.OS == "ios" ? "#3c3c3c" : "#3c3c3c",
     paddingVertical: 5,
     marginBottom: 5,
+    color: "white",
+    fontSize: 24,
+    justifyContent: "center",
     ...Platform.select({
       ios: {
-        paddingVertical: 5,
-        marginBottom: 5
+        paddingVertical: 15,
+        marginBottom: 15
       },
       android: {
         paddingVertical: 15,
