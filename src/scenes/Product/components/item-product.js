@@ -10,7 +10,7 @@ import {
 const ItemProduct = props => (
   <TouchableHighlight
     onPress={() =>
-      props.navigation.navigate("DetailScreen", {
+      props.navigation.navigate("ProductDetail", {
         idProduct: props.product._id
       })
     }

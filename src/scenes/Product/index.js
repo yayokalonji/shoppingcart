@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, SectionList, Platform } from "react-native";
+import { View, Text, StyleSheet, SectionList, Platform , Button, AsyncStorage} from "react-native";
 import ItemProduct from "./components/item-product";
 import ItemSeparator from "./components/item-separator";
 import httpProduts from "../../services/Products/http-produts";
@@ -32,6 +32,11 @@ class Product extends Component {
 
   keyExtractor = item => item._id.toString();
 
+  closeSession = async () => {
+    await AsyncStorage.clear();
+    this.props.navigation.navigate('AuthLoading')
+  }
+
   render() {
     return (
       <View>
@@ -41,6 +46,10 @@ class Product extends Component {
           renderSectionHeader={this.sectionHeader}
           keyExtractor={this.keyExtractor}
           sections={[{ data: this.state.productList, key: "Products" }]}
+        />
+        <Button
+          onPress={this.closeSession}
+          title="Close session"
         />
       </View>
     );

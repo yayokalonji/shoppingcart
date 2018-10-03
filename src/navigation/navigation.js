@@ -1,14 +1,16 @@
 import React from "react";
-import { StackNavigator, DrawerNavigator } from "react-navigation";
+import { createSwitchNavigator, StackNavigator, DrawerNavigator } from "react-navigation";
 import Product from "../scenes/Product";
 import ProductDetail from "../scenes/Detail";
-import Tab1 from "./tab-1";
-import Tab2 from "./tab-2";
-import Tab3 from "./tab-3";
-import Settings from "./settings";
+import Tab1 from "../components/tab-1";
+import Tab2 from "../components/tab-2";
+import Tab3 from "../components/tab-3";
+import Settings from "../components/settings";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/dist/FontAwesome";
 import SideMenu from "./side-menu";
+import AuthLoading from "./../scenes/Login/authLoading";
+import Auth from "./../scenes/Login/auth";
 
 const Stack = StackNavigator(
   {
@@ -74,3 +76,11 @@ export const Drawer = DrawerNavigator(
     contentComponent: SideMenu
   }
 );
+
+export const SwitchNavigator = createSwitchNavigator({
+  Auth: Auth,
+  AuthLoading: AuthLoading,
+  App: Drawer
+}, {
+    initialRouteName: 'AuthLoading',
+  });
