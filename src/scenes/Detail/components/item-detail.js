@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
+import { Text, StyleSheet, View, Image, Button } from "react-native";
 
 const ItemDetail = props => (
   <View style={styles.profileContainer}>
@@ -19,6 +19,9 @@ const ItemDetail = props => (
     </Text>
     <Text> Precio: {props.detail.price}</Text>
     <Text> Cantidad: {props.detail.quantity}</Text>
+    <Button onPress = {}
+      title="Add Cart"
+    />
   </View>
 );
 

@@ -11,6 +11,7 @@ import Icon from "react-native-vector-icons/dist/FontAwesome";
 import SideMenu from "./side-menu";
 import AuthLoading from "./../scenes/Login/authLoading";
 import Auth from "./../scenes/Login/auth";
+import ShoppingCartIcon from '../scenes/Product/components/shopping-cart-icon';
 
 const Stack = StackNavigator(
   {
@@ -18,7 +19,13 @@ const Stack = StackNavigator(
     ProductDetail: { screen: ProductDetail }
   },
   {
-    initialRouteName: "Product"
+    initialRouteName: "Product",
+    navigationOptions : {
+      headerTitle: 'Mi tienda :D',
+      headerRight :(
+        <ShoppingCartIcon />
+      )
+    }
   }
 );
 
