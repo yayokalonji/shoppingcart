@@ -26,7 +26,7 @@ export class Auth extends Component {
     }
     console.log('params:' + params);
     const data = await HttpUser.login(params);
-    if (data.token) {
+    if (data) {
       console.log(data);
       await AsyncStorage.setItem('data', JSON.stringify(data));
       this.props.navigation.navigate('App');

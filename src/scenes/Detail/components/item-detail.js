@@ -10,18 +10,16 @@ const ItemDetail = props => (
       style={styles.imageProfile}
     />
     <Text style={styles.profileName}>
-      {" "}
-      Nombre Producto: {props.detail.name}{" "}
+      Nombre Producto: {props.detail.name}
     </Text>
     <Text style={styles.profileLocation}>
-      {" "}
-      Descripcion del Producto: {props.detail.description}{" "}
+      Descripcion del Producto: {props.detail.description}
     </Text>
     <Text> Precio: {props.detail.price}</Text>
     <Text> Cantidad: {props.detail.quantity}</Text>
-    <Button onPress = {}
+    {/* <Button
       title="Add Cart"
-    />
+    /> */}
   </View>
 );
 
