@@ -12,11 +12,13 @@ import SideMenu from "./side-menu";
 import AuthLoading from "./../scenes/Login/authLoading";
 import Auth from "./../scenes/Login/auth";
 import ShoppingCartIcon from '../scenes/Product/components/shopping-cart-icon';
+import Cart from '../scenes/Cart';
 
 const Stack = StackNavigator(
   {
     Product: { screen: Product },
-    ProductDetail: { screen: ProductDetail }
+    ProductDetail: { screen: ProductDetail },
+    CartScreen :{ screen : Cart}    
   },
   {
     initialRouteName: "Product",

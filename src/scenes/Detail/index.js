@@ -1,33 +1,24 @@
-import React, { Component } from "react";
-import { View } from "react-native";
-import ItemDetail from "./components/item-detail";
-import httpProduts from "../../services/Products/http-produts";
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import ItemDetail from './components/item-detail';
+import { connect } from 'react-redux';
+import { addProductToCart } from '../../../actions/cart-action-creator';
 class ProductDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      productdetail: {}
-    };
   }
-
-  componentDidMount = () => {
-    this.getProduct();
-  };
-
-  async getProduct() {
-    const data = await httpProduts.getProduct(
-      this.props.navigation.getParam("idProduct")
-    );
-    this.setState({ productdetail: data });
-  }
-
   render() {
     return (
       <View>
-        <ItemDetail detail={this.state.productdetail} />
+        <ItemDetail onPressEvent={this.props.addItemToCart} navigation={this.props.navigation} />
       </View>
     );
   }
 }
 
-export default ProductDetail;
+const mapDispatchToProsp = (dispatch) => {
+   return {
+    addItemToCart: (product) => dispatch(addProductToCart(product))
+  }
+}
+export default connect(null, mapDispatchToProsp)(ProductDetail);

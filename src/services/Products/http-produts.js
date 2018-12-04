@@ -15,6 +15,7 @@ class HttpProduct {
   async getProduct(id) {
     try {
       const url = `${API_BASE}${HTTP_PRODUCT.getProducts}/${id}`;
+      console.log(url);
       const data = await httpBase.baseGet(url, {});
       console.log(data);
       return data;
@@ -23,4 +24,4 @@ class HttpProduct {
     }
   }
 }
-export default new HttpProduct();
+export default new HttpProduct;
