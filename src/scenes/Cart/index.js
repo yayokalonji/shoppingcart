@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        cartItem: state.get('cart').toArray()  //replacing toJS() method
+        cartItem: state  //replacing toJS() method
     }
 }
 

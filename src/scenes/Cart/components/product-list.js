@@ -4,7 +4,7 @@ import ProductItem from './product-item';
 
 class ProductList extends Component {
 
-    keyExtractor = (item) => item.id.toString()
+    keyExtractor = (item) => item._id.toString()
 
     render() {
         return (

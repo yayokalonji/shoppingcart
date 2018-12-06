@@ -7,7 +7,7 @@ import { withNavigation } from 'react-navigation';
 const ShoppingCartIcon = props => (
     <View style={styles.container}>
         <View style={styles.badget}>
-            <Text style={styles.badgetText}> {props.cartItems.size} </Text>
+            <Text style={styles.badgetText}> {props.cartItems.length} </Text>
         </View>
         <Icon
             onPress={() => props.cartItems.length > 0 ? props.navigation.navigate('CartScreen') : alert('No tienes artículos en tu carrito de compras.')}
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
     return {
-        cartItems: state.get('cart')
+        cartItems: state
     }
 }
 
