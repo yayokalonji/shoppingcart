@@ -39,7 +39,7 @@ class Product extends Component {
 
   render() {
     return (
-      <View>
+      <View style = {{backgroundColor :'#B0BEC5'}}> 
         <SectionList
           renderItem={this.renderItem}
           ItemSeparatorComponent={this.separatorComponent}

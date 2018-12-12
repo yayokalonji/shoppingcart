@@ -54,7 +54,7 @@ class ItemDetail extends Component {
 
 const styles = StyleSheet.create({
   profileContainer: {
-    backgroundColor: "#7B1FA2",
+    backgroundColor: "#B0BEC5",
     alignItems: "center",
     padding: 5
   },
